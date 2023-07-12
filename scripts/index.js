@@ -6,9 +6,20 @@
  * @param {number} length La taille que doit faire le mots de passe.
  * @returns Un mot de passe sécurisé
  */
-function generatePassword(length) {
-  let pass = 'Not working yet';
 
+function generatePassword(length) {
+  let pass = ''
+  for (let pas = 0; pas < length; pas++) {
+    if (randomInt(1, 5) === 1) {
+      pass = pass + randomLowerCase()
+   } else if (randomInt(1, 5) === 2) {
+    pass = pass + randomUpperCase()
+  } else if (randomInt(1, 5) === 3) {
+    pass = pass + randomSymbol()
+  } else {
+    pass = pass + randomNumber()
+  }
+}
   return pass;
 }
 
@@ -121,6 +132,16 @@ function randomSymbol() {
   ]);
 }
 
+
+
+
+
+
+
+
+
+
+
 /**
  * Copie le mot de passe actuel dans le presse-papiers.
  */
@@ -128,6 +149,7 @@ function copyToClipboard() {
   const pass = document.getElementById('password-output');
 
   navigator.clipboard.writeText(pass.textContent);
+  alert("Copié [ Je suis Csn1579 ]")
 }
 
 document.addEventListener('DOMContentLoaded', () => {
